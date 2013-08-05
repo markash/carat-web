@@ -1,0 +1,19 @@
+<cdk:root xmlns:cc="http://jboss.org/schema/richfaces/cdk/jsf/composite"
+          xmlns:cdk="http://jboss.org/schema/richfaces/cdk/core"
+          xmlns="http://jboss.org/schema/richfaces/cdk/xhtml-el">
+
+    <cc:interface>
+        <cdk:class>za.co.yellowfire.carat.jsf.renderkit.PieChartRenderer</cdk:class>
+        <cdk:superclass>za.co.yellowfire.carat.jsf.component.PieChartRendererBase</cdk:superclass>
+        <cdk:component-family>za.co.yellowfire.carat.chart</cdk:component-family>
+        <cdk:renderer-type>za.co.yellowfire.carat.jsf.component.PieChartRenderer</cdk:renderer-type>
+    </cc:interface>
+
+    <cc:implementation>
+        <div class="rich-schedule #{component.attributes['styleClass']}" id="#{clientId}">
+            <script type="text/javascript">
+                <cdk:call expression="writeInitFunction(facesContext,component);"/>
+            </script>
+        </div>
+    </cc:implementation>
+</cdk:root>
