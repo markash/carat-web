@@ -10,7 +10,7 @@
     </cc:interface>
 
     <cc:implementation>
-        <div class="rich-schedule #{component.attributes['styleClass']}" id="#{clientId}">
+        <div class="pie-chart #{component.attributes['styleClass']}" id="#{clientId}">
             <script type="text/javascript">
                 <cdk:call expression="writeInitFunction(facesContext,component);"/>
             </script>

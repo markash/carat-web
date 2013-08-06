@@ -31,7 +31,6 @@
             <groupId>org.richfaces.ui.core</groupId>
             <artifactId>richfaces-ui-core-ui</artifactId>
             <version>${dependency.richfaces.cdk.version}</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.richfaces.core</groupId>
