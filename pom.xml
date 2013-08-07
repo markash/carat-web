@@ -21,6 +21,23 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.richfaces</groupId>
+                <artifactId>richfaces-bom</artifactId>
+                <version>${dependency.richfaces.cdk.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>org.richfaces.cdk</groupId>
+                <artifactId>annotations</artifactId>
+                <version>${dependency.richfaces.cdk.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>za.co.yellowfire</groupId>
@@ -28,20 +45,18 @@
             <version>0.1.1</version>
         </dependency>
         <dependency>
-            <groupId>org.richfaces.ui.core</groupId>
-            <artifactId>richfaces-ui-core-ui</artifactId>
-            <version>${dependency.richfaces.cdk.version}</version>
+            <groupId>org.richfaces.ui</groupId>
+            <artifactId>richfaces-components-ui</artifactId>
         </dependency>
         <dependency>
             <groupId>org.richfaces.core</groupId>
             <artifactId>richfaces-core-impl</artifactId>
-            <version>${dependency.richfaces.cdk.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.richfaces.cdk</groupId>
             <artifactId>annotations</artifactId>
-            <version>${dependency.richfaces.cdk.version}</version>
+            <scope>provided</scope>
         </dependency>
 	    <dependency>
             <groupId>org.webjars</groupId>
@@ -57,6 +72,15 @@
 
     <build>
         <finalName>carat-web</finalName>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-cdk-plugin</artifactId>
+                    <groupId>org.richfaces.cdk</groupId>
+                    <version>${dependency.richfaces.cdk.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -71,7 +95,8 @@
                         </goals>
                         <configuration>
                             <sources>
-                                <source>target/generated-sources</source>
+                                <source>${project.build.directory}/generated-sources/main/java</source>
+                                <source>${project.build.directory}/generated-sources/main/resources</source>
                             </sources>
                         </configuration>
                     </execution>
@@ -114,10 +139,6 @@
             <plugin>
                 <groupId>org.richfaces.cdk</groupId>
                 <artifactId>maven-cdk-plugin</artifactId>
-                <version>${dependency.richfaces.cdk.version}</version>
-                <configuration>
-                    <!-- project specific settings, see below -->
-                </configuration>
                 <executions>
                     <execution>
                         <id>cdk-generate-sources</id>
@@ -127,6 +148,16 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <templates>
+                        <fileSet>
+                            <directory>src/main/java</directory>
+                            <includes>
+                                <include>**/*.template.xml</include>
+                            </includes>
+                        </fileSet>
+                    </templates>
+                </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
