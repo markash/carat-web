@@ -11,8 +11,7 @@
 </composite:interface>
 
 <composite:implementation>
-    <div class="pagination pagination-right">
-    <ul>
+    <ul class="pagination pull-right">
         <li><h:commandLink value="Refresh" action="#{cc.attrs.bean.onRefresh}" /></li>
         <li><h:commandLink value="First" action="#{cc.attrs.bean.onFirst}" rendered="#{cc.attrs.firstRendered}"/></li>
         <li><h:commandLink value="Previous" action="#{cc.attrs.bean.onPrevious}" rendered="#{cc.attrs.bean.previousRendered}"/></li>
@@ -22,6 +21,5 @@
         <li><h:commandLink value="Next" action="#{cc.attrs.bean.onNext}" rendered="#{cc.attrs.bean.nextRendered}"/></li>
         <li><h:commandLink value="Last" action="#{cc.attrs.bean.onLast}" rendered="#{cc.attrs.lastRendered}"/></li>
     </ul>
-    </div>
 </composite:implementation>
 </html>
