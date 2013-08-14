@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cdk:root xmlns="http://jboss.org/schema/richfaces/cdk/xhtml-el" xmlns:cdk="http://jboss.org/schema/richfaces/cdk/core"
+          xmlns:c="http://jboss.org/schema/richfaces/cdk/jstl/core" xmlns:cc="http://jboss.org/schema/richfaces/cdk/jsf/composite"
+          xmlns:javaee="http://java.sun.com/xml/ns/javaee">
+
+    <cc:interface>
+        <cdk:class>za.co.yellowfire.carat.jsf.renderkit.FormGroupRenderer</cdk:class>
+        <cdk:superclass>javax.faces.render.Renderer</cdk:superclass>
+        <cdk:renderer-type>za.co.yellowfire.carat.jsf.formGroup</cdk:renderer-type>
+    </cc:interface>
+
+    <cc:implementation>
+        <div class="form-group">
+            <label for="#{cc.attrs.for}">#{cc.attrs.label}</label>
+            <composite:insertChildren />
+        </div>
+    </cc:implementation>
+</cdk:root>

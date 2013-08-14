@@ -1,0 +1,17 @@
+<facelet-taglib version="2.2"
+                xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facelettaglibrary_2_2.xsd">
+
+    <namespace>http://www.yellowfire.co.za/carat</namespace>
+    <tag>
+        <tag-name>formGroup</tag-name>
+        <component>
+            <resource-id>ui/formGroup.xhtml</resource-id>
+        </component>
+    </tag>
+    <tag>
+        <tag-name>pagination</tag-name>
+        <source>resources/ui/pagination.xhtml</source>
+    </tag>
+</facelet-taglib>

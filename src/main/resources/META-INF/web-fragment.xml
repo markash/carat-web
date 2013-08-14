@@ -1,0 +1,6 @@
+<web-fragment>
+    <context-param>
+        <param-name>facelets.LIBRARIES</param-name>
+        <param-value>/META-INF/carat.taglib.xml</param-value>
+    </context-param>
+</web-fragment>
