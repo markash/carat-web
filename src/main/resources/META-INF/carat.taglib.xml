@@ -16,4 +16,10 @@
             <resource-id>ui/pagination.xhtml</resource-id>
         </component>
     </tag>
+    <tag>
+        <tag-name>jumbotron</tag-name>
+        <component>
+            <resource-id>ui/jumbotron.xhtml</resource-id>
+        </component>
+    </tag>
 </facelet-taglib>

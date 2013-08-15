@@ -1,0 +1,20 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:cc="http://java.sun.com/jsf/composite"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <cc:interface componentType="za.co.yellowfire.carat.jsf.component.JumboTron">
+        <cc:attribute name="heading"/>
+        <cc:attribute name="tagline"/>
+        <cc:attribute name="bean"/>
+    </cc:interface>
+
+    <cc:implementation>
+        <div class="jumbotron">
+            <h1>#{cc.heading}</h1>
+            <p>#{cc.tagline}</p>
+            <p><cc:insertChildren /></p>
+        </div>
+    </cc:implementation>
+</ui:composition>
