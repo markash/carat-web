@@ -1,25 +1,25 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:composite="http://java.sun.com/jsf/composite">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-<composite:interface name="pagination" displayName="Pagination" preferred="true" expert="false" shortDescription="Data table pagination component">
-    <composite:attribute name="lastRendered" type="java.lang.Boolean" displayName="Last Rendered" required="false" default="true" />
-    <composite:attribute name="firstRendered" type="java.lang.Boolean" displayName="First Rendered" required="false" default="true" />
-    <composite:attribute name="bean" type="za.co.yellowfire.carat.web.MemoryPageableDataModel" displayName="Pageable Data Model" required="true" />
-</composite:interface>
+<cc:interface componentType="za.co.yellowfire.carat.jsf.component.Pagination">
+    <cc:attribute name="lastRendered"/>
+    <cc:attribute name="firstRendered"/>
+    <cc:attribute name="bean"/>za.co.yellowfire.carat.web.MemoryPageableDataModel
+</cc:interface>
 
-<composite:implementation>
+<cc:implementation>
     <ul class="pagination pull-right">
-        <li><h:commandLink value="Refresh" action="#{cc.attrs.bean.onRefresh}" /></li>
-        <li><h:commandLink value="First" action="#{cc.attrs.bean.onFirst}" rendered="#{cc.attrs.firstRendered}"/></li>
-        <li><h:commandLink value="Previous" action="#{cc.attrs.bean.onPrevious}" rendered="#{cc.attrs.bean.previousRendered}"/></li>
-        <ui:repeat value="#{cc.attrs.bean.pages}" var="page">
-            <li><h:commandLink value="#{page}" action="#{cc.attrs.bean.onGoto(page)}"/></li>
+        <li><h:commandLink value="Refresh" action="#{cc.bean.onRefresh}" /></li>
+        <li><h:commandLink value="First" action="#{cc.bean.onFirst}" rendered="#{cc.firstRendered}"/></li>
+        <li><h:commandLink value="Previous" action="#{cc.bean.onPrevious}" rendered="#{cc.bean.previousRendered}"/></li>
+        <ui:repeat value="#{cc.bean.pages}" var="page">
+            <li><h:commandLink value="#{page}" action="#{cc.bean.onGoto(page)}"/></li>
         </ui:repeat>
-        <li><h:commandLink value="Next" action="#{cc.attrs.bean.onNext}" rendered="#{cc.attrs.bean.nextRendered}"/></li>
-        <li><h:commandLink value="Last" action="#{cc.attrs.bean.onLast}" rendered="#{cc.attrs.lastRendered}"/></li>
+        <li><h:commandLink value="Next" action="#{cc.bean.onNext}" rendered="#{cc.bean.nextRendered}"/></li>
+        <li><h:commandLink value="Last" action="#{cc.bean.onLast}" rendered="#{cc.lastRendered}"/></li>
     </ul>
-</composite:implementation>
-</html>
+</cc:implementation>
+</ui:composition>
