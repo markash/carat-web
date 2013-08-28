@@ -110,7 +110,64 @@ public class BootstrapMessagesRenderer extends MessagesRenderer {
         }
     }
 
-    private void encodeSeverityMessages(FacesContext facesContext, UIComponent component, UIMessages uiMessages, Severity severity, List<FacesMessage> messages) throws IOException {
+//    private void encodeSeverityMessages(FacesContext facesContext, UIComponent component, UIMessages uiMessages, Severity severity, List<FacesMessage> messages) throws IOException {
+//        ResponseWriter writer = facesContext.getResponseWriter();
+//
+//        String alertSeverityClass = "";
+//
+//        if(FacesMessage.SEVERITY_INFO.equals(severity)) {
+//            alertSeverityClass = "alert-info";
+//        } else if(FacesMessage.SEVERITY_WARN.equals(severity)) {
+//            alertSeverityClass = ""; // Default alert is a warning
+//        } else if(FacesMessage.SEVERITY_ERROR.equals(severity)) {
+//            alertSeverityClass = "alert-error";
+//        } else if(FacesMessage.SEVERITY_FATAL.equals(severity)) {
+//            alertSeverityClass = "alert-error";
+//        }
+//
+//        writer.startElement("div", null);
+//        writer.writeAttribute("class", "alert " + alertSeverityClass, "alert " + alertSeverityClass);
+//        writer.startElement("a", component);
+//        writer.writeAttribute("class", "close", "class");
+//        writer.writeAttribute("data-dismiss", "alert", "data-dismiss");
+//        writer.writeAttribute("href", "#", "href");
+//        writer.write("&times;");
+//        writer.endElement("a");
+//
+//        writer.startElement("ul", null);
+//
+//        for (FacesMessage msg : messages){
+//            String summary = msg.getSummary() != null ? msg.getSummary() : "";
+//            String detail = msg.getDetail() != null ? msg.getDetail() : summary;
+//
+//            writer.startElement("li", component);
+//
+//            if (uiMessages.isShowSummary()) {
+//                writer.startElement("strong", component);
+//                writer.writeText(summary, component, null);
+//                writer.endElement("strong");
+//            }
+//
+//            if (uiMessages.isShowDetail()) {
+//                writer.writeText(" " + detail, null);
+//            }
+//
+//            writer.endElement("li");
+//            msg.rendered();
+//        }
+//        writer.endElement("ul");
+//        writer.endElement("div");
+//    }
+
+    private void encodeSeverityMessages(FacesContext facesContext, UIComponent component, UIMessages uiMessages, Severity severity, List<FacesMessage> messages)
+            throws IOException{
+        for (FacesMessage message : messages) {
+            encodeSeverityMessage(facesContext, component, uiMessages, severity, message);
+        }
+    }
+
+    private void encodeSeverityMessage(FacesContext facesContext, UIComponent component, UIMessages uiMessages, Severity severity, FacesMessage message)
+            throws IOException {
         ResponseWriter writer = facesContext.getResponseWriter();
 
         String alertSeverityClass = "";
@@ -134,28 +191,19 @@ public class BootstrapMessagesRenderer extends MessagesRenderer {
         writer.write("&times;");
         writer.endElement("a");
 
-        writer.startElement("ul", null);
+        final String summary = message.getSummary() != null ? message.getSummary() : "";
+        final String detail = message.getDetail() != null ? message.getDetail() : summary;
 
-        for (FacesMessage msg : messages){
-            String summary = msg.getSummary() != null ? msg.getSummary() : "";
-            String detail = msg.getDetail() != null ? msg.getDetail() : summary;
-
-            writer.startElement("li", component);
-
-            if (uiMessages.isShowSummary()) {
-                writer.startElement("strong", component);
-                writer.writeText(summary, component, null);
-                writer.endElement("strong");
-            }
-
-            if (uiMessages.isShowDetail()) {
-                writer.writeText(" " + detail, null);
-            }
-
-            writer.endElement("li");
-            msg.rendered();
+        if (uiMessages.isShowSummary()) {
+            writer.startElement("strong", component);
+            writer.writeText(summary, component, null);
+            writer.endElement("strong");
         }
-        writer.endElement("ul");
+
+        if (uiMessages.isShowDetail()) {
+            writer.writeText(" " + detail, null);
+        }
+        message.rendered();
         writer.endElement("div");
     }
 }

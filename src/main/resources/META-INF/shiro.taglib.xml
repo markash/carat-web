@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<facelet-taglib xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facelettaglibrary_2_2.xsd"
+                version="2.2">
+
+    <namespace>http://www.yellowfire.co.za/shiro</namespace>
+    <tag>
+        <tag-name>principal</tag-name>
+        <component>
+            <component-type>za.co.yellowfire.carat.jsf.component.shiro.PrincipalTag</component-type>
+        </component>
+        <attribute>
+            <description></description>
+            <name>type</name>
+            <required>false</required>
+        </attribute>
+        <attribute>
+            <description></description>
+            <name>property</name>
+            <required>false</required>
+        </attribute>
+        <attribute>
+            <description></description>
+            <name>defaultValue</name>
+            <required>false</required>
+        </attribute>
+    </tag>
+
+    <tag>
+        <tag-name>hasPermission</tag-name>
+        <handler-class>za.co.yellowfire.carat.jsf.component.shiro.HasPermissionTag</handler-class>
+        <attribute>
+            <description></description>
+            <name>name</name>
+            <required>true</required>
+        </attribute>
+    </tag>
+
+    <tag>
+        <tag-name>hasAnyPermission</tag-name>
+        <handler-class>za.co.yellowfire.carat.jsf.component.shiro.HasAnyPermissionTag</handler-class>
+        <attribute>
+            <description></description>
+            <name>name</name>
+            <required>true</required>
+        </attribute>
+    </tag>
+
+    <tag>
+        <tag-name>lacksPermission</tag-name>
+        <handler-class>za.co.yellowfire.carat.jsf.component.shiro.LacksPermissionTag</handler-class>
+        <attribute>
+            <description></description>
+            <name>name</name>
+            <required>true</required>
+        </attribute>
+    </tag>
+
+    <tag>
+        <tag-name>guest</tag-name>
+        <handler-class>za.co.yellowfire.carat.jsf.component.shiro.GuestTag</handler-class>
+    </tag>
+
+    <tag>
+        <tag-name>user</tag-name>
+        <handler-class>za.co.yellowfire.carat.jsf.component.shiro.UserTag</handler-class>
+    </tag>
+
+    <tag>
+        <tag-name>authenticated</tag-name>
+        <handler-class>za.co.yellowfire.carat.jsf.component.shiro.AuthenticatedTag</handler-class>
+    </tag>
+
+    <tag>
+        <tag-name>remembered</tag-name>
+        <handler-class>za.co.yellowfire.carat.jsf.component.shiro.RememberedTag</handler-class>
+    </tag>
+
+    <tag>
+        <tag-name>notAuthenticated</tag-name>
+        <handler-class>za.co.yellowfire.carat.jsf.component.shiro.NotAuthenticatedTag</handler-class>
+    </tag>
+
+    <tag>
+        <tag-name>hasRole</tag-name>
+        <handler-class>za.co.yellowfire.carat.jsf.component.shiro.HasRoleTag</handler-class>
+        <attribute>
+            <description></description>
+            <name>name</name>
+            <required>true</required>
+        </attribute>
+    </tag>
+
+    <tag>
+        <tag-name>lacksRole</tag-name>
+        <handler-class>za.co.yellowfire.carat.jsf.component.shiro.LacksRoleTag</handler-class>
+        <attribute>
+            <description></description>
+            <name>name</name>
+            <required>true</required>
+        </attribute>
+    </tag>
+
+    <tag>
+        <tag-name>hasAnyRoles</tag-name>
+        <handler-class>za.co.yellowfire.carat.jsf.component.shiro.HasAnyRolesTag</handler-class>
+        <attribute>
+            <description></description>
+            <name>name</name>
+            <required>true</required>
+        </attribute>
+    </tag>
+
+</facelet-taglib>

@@ -28,4 +28,18 @@
             <resource-id>ui/alert.xhtml</resource-id>
         </component>
     </tag>
+    <tag>
+        <tag-name>menuItem</tag-name>
+        <component>
+            <resource-id>ui/menuItem.xhtml</resource-id>
+        </component>
+        <attribute>
+            <name>value</name>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <name>action</name>
+            <type>javax.el.MethodExpression</type>
+        </attribute>
+    </tag>
 </facelet-taglib>

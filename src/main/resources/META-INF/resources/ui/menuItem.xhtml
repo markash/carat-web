@@ -1,0 +1,14 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:cc="http://java.sun.com/jsf/composite"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html">
+
+    <cc:interface componentType="za.co.yellowfire.carat.jsf.component.MenuItem">
+        <cc:attribute name="value" />
+        <cc:attribute name="action" type="javax.el.MethodExpression"/>
+    </cc:interface>
+
+    <cc:implementation>
+        <li><h:commandLink value="#{cc.attrs.value}" action="#{cc.attrs.action}" /></li>
+    </cc:implementation>
+</ui:composition>

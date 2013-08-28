@@ -3,7 +3,6 @@ package za.co.yellowfire.carat.jsf.component;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 
-import javax.annotation.Nullable;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.FacesComponent;
 import javax.faces.component.UIComponent;
@@ -82,7 +81,7 @@ public class FormGroup extends UINamingContainer {
                 getFacesContext().getMessageList(clientId),
                 new Predicate<FacesMessage>() {
                     @Override
-                    public boolean apply(@Nullable FacesMessage msg) {
+                    public boolean apply(FacesMessage msg) {
                         if (msg != null && msg.getSeverity() != null) {
                             for (FacesMessage.Severity severity : severities) {
                                 if (severity.equals(msg.getSeverity())) {
