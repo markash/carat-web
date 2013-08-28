@@ -23,7 +23,7 @@ public class Alert extends UINamingContainer {
         return (String) getStateHelper().eval(PropertyKeys.type);
     }
 
-    public void setTagline(String type) {
+    public void setType(String type) {
         getStateHelper().put(PropertyKeys.type, type);
     }
 
