@@ -1,0 +1,13 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:cc="http://java.sun.com/jsf/composite"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <cc:interface componentType="za.co.yellowfire.carat.jsf.component.Alert">
+        <cc:attribute name="type" />
+        <cc:attribute name="message"/>
+    </cc:interface>
+
+    <cc:implementation>
+        <div class="alert #{cc.alertStyle}">#{cc.attrs.message}</div>
+    </cc:implementation>
+</ui:composition>

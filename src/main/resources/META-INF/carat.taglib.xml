@@ -22,4 +22,10 @@
             <resource-id>ui/jumbotron.xhtml</resource-id>
         </component>
     </tag>
+    <tag>
+        <tag-name>alert</tag-name>
+        <component>
+            <resource-id>ui/alert.xhtml</resource-id>
+        </component>
+    </tag>
 </facelet-taglib>
